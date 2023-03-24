@@ -19,7 +19,8 @@ Conforme solicitado, essa é a documentação criada para o Projeto de PI3 da Lo
 
 ![image](https://user-images.githubusercontent.com/86258424/227393484-d6d33a6e-2e42-4ed4-ace2-7d568a96a086.png)
 
-*Tela do Crud:
+*Tela do (CRUD):
+
 ![image](https://user-images.githubusercontent.com/128758797/227395710-73bd558f-e8a7-499b-83f7-86e9b29f3751.png)
 
 
