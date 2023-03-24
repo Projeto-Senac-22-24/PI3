@@ -21,7 +21,8 @@ Conforme solicitado, essa é a documentação criada para o Projeto de PI3 da Lo
 
 *Tela do (CRUD):
 
-![image](https://user-images.githubusercontent.com/128758797/227395710-73bd558f-e8a7-499b-83f7-86e9b29f3751.png)
+![image](https://user-images.githubusercontent.com/86258424/227396014-ee15c89f-aee4-4163-ac5f-5eef8bfa8273.png)
+
 
 
 
