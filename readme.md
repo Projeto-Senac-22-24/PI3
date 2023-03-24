@@ -10,3 +10,9 @@ Conforme solicitado, essa é a documentação criada para o Projeto de PI3 da Lo
 *Pagina da compra do Produto
 
 ![image](https://user-images.githubusercontent.com/128719352/227392986-b71c7431-3acf-4ec2-813c-0c570860b872.png)
+
+tela de login do adm
+
+![image](https://user-images.githubusercontent.com/86258424/227393484-d6d33a6e-2e42-4ed4-ace2-7d568a96a086.png)
+
+
