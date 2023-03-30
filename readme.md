@@ -3,7 +3,7 @@
 Conforme solicitado, essa é a documentação criada para o Projeto de PI3 da Loja de Suplementos.
 
 * Projeto ira cadastrar produtos
-* Puscar produtos
+* Buscar produtos
 
 ![MER_SuplaMente](https://user-images.githubusercontent.com/77363230/227391811-70c88f40-c3c5-4edd-bfb7-3d7de1afe80d.png)
 
@@ -22,6 +22,15 @@ Conforme solicitado, essa é a documentação criada para o Projeto de PI3 da Lo
 *Tela do (CRUD):
 
 ![image](https://user-images.githubusercontent.com/86258424/227396014-ee15c89f-aee4-4163-ac5f-5eef8bfa8273.png)
+
+LISTA DE UTILIDADE:
+*TELA DE CADASTRO DO CLIENTE 
+*TELA DE CADASTRO DO PRODUTO
+*TELA DOS PRODUTOS
+*CATEGORIA DO PRODUTO
+*OPÇÕES DE SABORES DO PRODUTO APRESENTADO
+*ARMAZENAMENTO DOS PRODUTOS
+*PESQUISA DOS PRODUTOS
 
 
 
