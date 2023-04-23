@@ -3,13 +3,11 @@ package br.com.SuplaMentePI.servlet.modelos;
 public class Produto {
 
     private long id;
-    private String Nome;
+    private String Name;
     private String Descri;
-    private double Quantidade;
-    private double Tamanho;
-    private String Sabor;
     private double Valor;
-    // private Categorias categoria;
+
+    private Categorias categoria;
 
     public long getId() {
         return id;
@@ -20,11 +18,11 @@ public class Produto {
     }
 
     public String getNome() {
-        return Nome;
+        return Name;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        Name = nome;
     }
 
     public String getDescri() {
@@ -35,30 +33,6 @@ public class Produto {
         Descri = descri;
     }
 
-    public double getQuantidade() {
-        return Quantidade;
-    }
-
-    public void setQuantidade(double quantidade) {
-        Quantidade = quantidade;
-    }
-
-    public double getTamanho() {
-        return Tamanho;
-    }
-
-    public void setTamanho(double tamanho) {
-        Tamanho = tamanho;
-    }
-
-    public String getSabor() {
-        return Sabor;
-    }
-
-    public void setSabor(String sabor) {
-        Sabor = sabor;
-    }
-
     public double getValor() {
         return Valor;
     }
@@ -67,13 +41,13 @@ public class Produto {
         Valor = valor;
     }
 
-  /*  public Categorias getCategoria() {
+    public Categorias getCategoria() {
         return categoria;
     }
 
     public void setCategoria(Categorias categoria) {
         this.categoria = categoria;
-    } */
+    }
 
 
 

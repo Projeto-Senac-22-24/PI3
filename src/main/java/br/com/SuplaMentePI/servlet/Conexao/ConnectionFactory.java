@@ -10,7 +10,7 @@ public class ConnectionFactory {
 
     public static Connection getConnection() throws SQLException{
         try {
-            return  DriverManager.getConnection("jdbc:mysql://localhost:3306/Teste", "root", "0000");
+            return  DriverManager.getConnection("jdbc:h2:~/test", "sa", "sa");
         } catch (SQLException e) {
            return null;
 

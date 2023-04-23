@@ -15,7 +15,7 @@ import java.sql.SQLException;
 
 @WebServlet("/criar-suplaMente")
 public class CriarSuplaMenteServlet  extends HttpServlet {
-    //
+
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -23,7 +23,7 @@ public class CriarSuplaMenteServlet  extends HttpServlet {
 
         System.out.println(suplaName);
 
-        req.getRequestDispatcher("index.html").forward(req, resp);// mandando a pagina para algum lugar
+        req.getRequestDispatcher("index.html").forward(req, resp);// mandando a pagina
 
 
        //ConnectionFactory.getConnection();

@@ -9,13 +9,12 @@ public class teste {
         ProdutoDao dao = new ProdutoDao();
 
         Produto produto = new Produto();
-        produto.setId(1);
+        produto.setId(0);
         produto.setNome("proteina");
-        produto.setQuantidade(2);
         produto.setDescri("dfdsgtehtjtyujkyujttttyttttttttt");
         produto.setValor(99);
-        produto.setSabor("morango");
-        produto.setTamanho(1);
+
+
         //produto.setCategoria(Categorias.cafeina);
 
 

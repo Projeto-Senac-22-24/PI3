@@ -20,15 +20,11 @@ public class adicionaProduto extends HttpServlet {
 
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String NomeStr = req.getParameter("Nome");
-        String SaborStr = req.getParameter("Sabor");
-        String TamanhoStr = req.getParameter("Tamanho");
-        String QuantidadeStr = req.getParameter("Quantidade");
-        String ValorStr = req.getParameter("Valor");
         String DescriStr = req.getParameter("Descri");
+        String ValorStr = req.getParameter("Valor");
 
         double Valor = Double.parseDouble(ValorStr);
-        double Tamanho = Double.parseDouble(TamanhoStr);
-        double Quantidade = Double.parseDouble(QuantidadeStr);
+
 
       Produto produto = new Produto();
 

@@ -15,23 +15,21 @@ public class ProdutoDao implements InterProdutoDao{
     @Override
     public Produto save(Produto produto) {
         try(Connection connection = getConnection()) {
-            String sql= "INSERT INTO Produto (id, Nome, Descri, Sabor, Quantidade, Valor, Tamanho) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String sql= "INSERT INTO Produto (id, Nome, Descri, Valor) VALUES (?, ?, ?, ?)";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setLong( 1, produto.getId());
             preparedStatement.setString( 2, produto.getNome());
             preparedStatement.setString( 3, produto.getDescri());
-            preparedStatement.setString( 4, produto.getSabor());
-            preparedStatement.setDouble( 5, produto.getQuantidade());
-            preparedStatement.setDouble( 6, produto.getValor());
-          //  preparedStatement.setString( 6, produto.getCategoria().toString());
+            preparedStatement.setDouble( 4, produto.getValor());
 
-            preparedStatement.setDouble(7, produto.getTamanho());
+
 
             preparedStatement.executeUpdate();
-            preparedStatement.close();
+            System.out.println("Conectado");
+            preparedStatement.close(); // pra fechar depois
         } catch (SQLException e) {
+            System.out.println("nao conectado");
             throw new RuntimeException(e);
-
         } ;
         return produto;
     }
