@@ -13,17 +13,17 @@ import java.sql.SQLException;
 
 
 
-@WebServlet("/criar-SuplaMente")
+@WebServlet("/criar-suplaMente")
 public class CriarSuplaMenteServlet  extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String SuplaName = req.getParameter("Supla-name");
+        String suplaName = req.getParameter("supla-name");
 
-        System.out.println(SuplaName);
+        System.out.println(suplaName);
 
-        req.getRequestDispatcher("index.html").forward(req, resp);
+        req.getRequestDispatcher("index.html").forward(req, resp);// mandando a pagina para algum lugar
 
 
        //ConnectionFactory.getConnection();
