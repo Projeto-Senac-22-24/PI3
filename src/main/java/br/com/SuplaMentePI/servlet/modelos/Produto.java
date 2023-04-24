@@ -3,11 +3,21 @@ package br.com.SuplaMentePI.servlet.modelos;
 public class Produto {
 
     private long id;
-    private String Name;
+    private String Nome;
     private String Descri;
     private double Valor;
 
     private Categorias categoria;
+
+    public Produto(Long id,String nome, String descri, double valor, Categorias categoria) {
+        this.id = id;
+        this.Nome = nome;
+        this.Descri = descri;
+        this.Valor = valor;
+        this.categoria = categoria;
+    }
+
+
 
     public long getId() {
         return id;
@@ -18,11 +28,11 @@ public class Produto {
     }
 
     public String getNome() {
-        return Name;
+        return Nome;
     }
 
     public void setNome(String nome) {
-        Name = nome;
+        Nome = nome;
     }
 
     public String getDescri() {

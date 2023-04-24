@@ -2,6 +2,10 @@ package br.com.SuplaMentePI.servlet;
 
 
 
+import br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory;
+import br.com.SuplaMentePI.servlet.dao.ProdutoDao;
+import br.com.SuplaMentePI.servlet.modelos.Produto;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,20 +17,30 @@ import java.sql.SQLException;
 
 
 
-@WebServlet("/criar-suplaMente")
+@WebServlet("/Cadastra-Produto")
 public class CriarSuplaMenteServlet  extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//         String produtoName = req.getParameter("produto-Name");
+//        //Double produtoValor = Double.valueOf(req.getParameter("produto-valor"));
+//        String produtoDescri= req.getParameter("produto-descri");
+//
+//        Produto produto = new Produto();
+//        produto.setNome(produtoName);
+//       // produto.setValor(produtoValor);
+//        produto.setDescri(produtoDescri);
+//        new ProdutoDao().save(produto);
 
-        String suplaName = req.getParameter("supla-name");
-
-        System.out.println(suplaName);
 
         req.getRequestDispatcher("index.html").forward(req, resp);// mandando a pagina
 
 
-       //ConnectionFactory.getConnection();
+//        try {
+//            ConnectionFactory.getConnection();
+//        } catch (SQLException e) {
+//            throw new RuntimeException(e);
+//        }
 
     }
 }

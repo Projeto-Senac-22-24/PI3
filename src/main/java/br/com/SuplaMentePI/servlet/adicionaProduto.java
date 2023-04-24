@@ -26,7 +26,7 @@ public class adicionaProduto extends HttpServlet {
         double Valor = Double.parseDouble(ValorStr);
 
 
-      Produto produto = new Produto();
+     // Produto produto = new Produto();
 
 
         Connection connection = null;
@@ -38,7 +38,7 @@ public class adicionaProduto extends HttpServlet {
 
         ProdutoDao dao = new ProdutoDao();
 
-         dao.save(produto);
+        // dao.save(produto);
     }
 
 }
