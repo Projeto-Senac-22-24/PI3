@@ -54,8 +54,35 @@ public class ProdutoDao implements InterProdutoDao{
 
     @Override
     public Produto update(Produto produto) {
-        return null;
+        try(Connection connection = getConnection()) {
+
+            String sql= "UPDATE Produto SET nome = ?, descri = ?, valor = ?, categoria = ? WHERE id = ?;";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+          // to respeitando a ordem viu
+            preparedStatement.setString( 1, produto.getNome());
+
+            preparedStatement.setString( 2, produto.getDescri());
+
+            preparedStatement.setDouble( 3, produto.getValor());
+
+            preparedStatement.setString(4,produto.getCategoria().toString());
+
+            preparedStatement.setLong( 5,produto.getId());
+
+            preparedStatement.executeUpdate();
+
+
+
+        } catch (SQLException e) {
+
+            System.out.println("nao conectado");
+
+            throw new RuntimeException(e);
+        } ;
+        return produto;
     }
+
 
     @Override
     public void deleta(long id) {
