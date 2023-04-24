@@ -59,7 +59,7 @@ public class ProdutoDao implements InterProdutoDao{
 
     @Override
     public void deleta(long id) {
-// tiago faz
+
     }
 
     @Override
