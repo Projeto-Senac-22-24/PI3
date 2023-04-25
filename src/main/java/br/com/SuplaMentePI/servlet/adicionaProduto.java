@@ -4,8 +4,10 @@ package br.com.SuplaMentePI.servlet;
 
 import br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory;
 import br.com.SuplaMentePI.servlet.dao.ProdutoDao;
+import br.com.SuplaMentePI.servlet.modelos.Categorias;
 import br.com.SuplaMentePI.servlet.modelos.Produto;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,30 +17,34 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import static br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory.getConnection;
+
 @WebServlet("/adicionaProduto")
 public class adicionaProduto extends HttpServlet {
 
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String NomeStr = req.getParameter("Nome");
-        String DescriStr = req.getParameter("Descri");
-        String ValorStr = req.getParameter("Valor");
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String nomeStr = req.getParameter("Nome");
+        String descriStr = req.getParameter("Descri");
+        String valorStr = req.getParameter("Valor");
+        String categoriaStr = req.getParameter("categoria");
 
-        double Valor = Double.parseDouble(ValorStr);
+        double valor = Double.parseDouble(valorStr);
+        Categorias categoria = Categorias.valueOf(categoriaStr);
 
-
-     // Produto produto = new Produto();
-
+        Produto produto = new Produto(nomeStr, descriStr, valor, categoria);
 
         Connection connection = null;
         try {
-            connection = ConnectionFactory.getConnection();
+            connection = getConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        ProdutoDao dao = new ProdutoDao(connection);
+        dao.save(produto);
 
-       // ProdutoDao dao = new ProdutoDao();
+        RequestDispatcher dispatcher = req.getRequestDispatcher("/produto-adicionado.jsp");
+        dispatcher.forward(req,resp);
 
-        // dao.save(produto);
     }
 
 }
