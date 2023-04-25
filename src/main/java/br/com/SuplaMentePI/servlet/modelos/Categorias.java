@@ -5,6 +5,7 @@ public enum Categorias {
     Proteínas,
     Termogênicos,
     Vitaminas,
-    Carboidratos
+    Carboidratos,
+    test
 
 }

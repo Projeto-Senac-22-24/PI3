@@ -52,7 +52,7 @@
         <artifactId>tomcat7-maven-plugin</artifactId>
         <version>2.1</version>
         <configuration>
-          <path>/</path>
+          <path>/SuplaMente</path>
         </configuration>
         <executions>
           <execution>

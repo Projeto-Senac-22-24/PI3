@@ -17,30 +17,21 @@ import java.sql.SQLException;
 
 
 
-@WebServlet("/Cadastra-Produto")
+@WebServlet("/adiciona-produto")
 public class CriarSuplaMenteServlet  extends HttpServlet {
 
     @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//         String produtoName = req.getParameter("produto-Name");
-//        //Double produtoValor = Double.valueOf(req.getParameter("produto-valor"));
-//        String produtoDescri= req.getParameter("produto-descri");
-//
-//        Produto produto = new Produto();
-//        produto.setNome(produtoName);
-//       // produto.setValor(produtoValor);
-//        produto.setDescri(produtoDescri);
-//        new ProdutoDao().save(produto);
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-        req.getRequestDispatcher("index.html").forward(req, resp);// mandando a pagina
+        req.getRequestDispatcher("adiciona-produto.html").forward(req, resp);// mandando a pagina
 
 
-//        try {
-//            ConnectionFactory.getConnection();
-//        } catch (SQLException e) {
-//            throw new RuntimeException(e);
-//        }
+        try {
+            ConnectionFactory.getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
 
     }
 }

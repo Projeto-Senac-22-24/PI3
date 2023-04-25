@@ -14,15 +14,20 @@ import java.util.Optional;
 import static br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory.*;
 
 public class ProdutoDao implements InterProdutoDao{
+     private final Connection connection;
+
+    public ProdutoDao(Connection connection) {
+        this.connection = connection;
+    }
 
     @Override
     public Produto save(Produto produto) {
 
-        try(Connection connection = getConnection()) {
+        try {
 
-            String sql= "INSERT INTO Produto (Nome, Descri, Valor,categoria) VALUES (?, ?, ?, ?)";
+            String sql= "INSERT INTO Produto (Nome, Descri, Valor, Categoria) VALUES (?, ?, ?, ?)";
 
-            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql, 1);
 
             preparedStatement.setString( 1, produto.getNome());
 
@@ -36,10 +41,8 @@ public class ProdutoDao implements InterProdutoDao{
 
             ResultSet generatedKeys = preparedStatement.getGeneratedKeys(); // pra recuperara id criada
             generatedKeys.next();
-            produto.setId(generatedKeys.getLong("Id"));
+            produto.setId(generatedKeys.getLong("id"));
 
-
-            System.out.println("Conectado");
 
             preparedStatement.close(); // pra fechar depois
 
@@ -86,6 +89,26 @@ public class ProdutoDao implements InterProdutoDao{
 
     @Override
     public void deleta(long id) {
+
+        try(Connection connection = getConnection()) {
+
+            String sql= "DELETE FROM Produto WHERE id = ?";
+
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            preparedStatement.setLong(1,id);
+
+            preparedStatement.executeUpdate();
+
+
+
+        } catch (SQLException e) {
+
+            System.out.println("nao conectado");
+
+            throw new RuntimeException(e);
+        } ;
+
 
     }
 

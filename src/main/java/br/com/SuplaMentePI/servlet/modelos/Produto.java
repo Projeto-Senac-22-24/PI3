@@ -2,7 +2,7 @@ package br.com.SuplaMentePI.servlet.modelos;
 
 public class Produto {
 
-    private long id;
+    private Long id;
     private String Nome;
     private String Descri;
     private double Valor;
@@ -16,14 +16,15 @@ public class Produto {
         this.Valor = valor;
         this.categoria = categoria;
     }
+    public Produto(String nome, String descri, double valor, Categorias categoria) {
+      this((null), nome, descri, valor, categoria);
+    }
 
-
-
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

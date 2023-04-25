@@ -2,15 +2,21 @@ package br.com.SuplaMentePI.servlet;
 
 
 import br.com.SuplaMentePI.servlet.dao.ProdutoDao;
-import br.com.SuplaMentePI.servlet.modelos.Categorias;
-import br.com.SuplaMentePI.servlet.modelos.Produto;
 
-import java.util.List;
-import java.util.Optional;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+import static br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory.getConnection;
 
 public class teste {
     public static void main(String [] args){
-        ProdutoDao dao = new ProdutoDao();
+        Connection connection = null;
+        try {
+            connection = getConnection();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        ProdutoDao dao = new ProdutoDao(connection);
 
 
       // teste do buscar por categoria
@@ -63,11 +69,12 @@ public class teste {
 //        }
 
 // tava testando colocar um produto
-//        Produto produto = new Produto();
-//        produto.setNome("cafe");
-//        produto.setDescri("isso meso");
-//        produto.setValor(100.20);
-//        produto.setCategoria(Categorias.Proteínas);
+//        Produto produto = new Produto ();
+//
+//        produto.setNome("luz");
+//        produto.setDescri("gfgdfdfhdfhfdhfh");
+//        produto.setValor(20);
+//        produto.setCategoria(Categorias.Termogênicos);
 //
 //
 //        Produto inserido = dao.save(produto);
