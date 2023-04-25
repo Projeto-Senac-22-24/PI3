@@ -36,7 +36,7 @@ public class adicionaProduto extends HttpServlet {
             throw new RuntimeException(e);
         }
 
-        ProdutoDao dao = new ProdutoDao();
+       // ProdutoDao dao = new ProdutoDao();
 
         // dao.save(produto);
     }
