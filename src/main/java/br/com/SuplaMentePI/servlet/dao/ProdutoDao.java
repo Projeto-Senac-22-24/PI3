@@ -121,7 +121,7 @@ public class ProdutoDao implements InterProdutoDao{
         try(Connection connection = ConnectionFactory.getConnection()){
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
-            ResultSet rs = preparedStatement.executeQuery();// permite fazer uma busca
+            ResultSet rs = preparedStatement.executeQuery();
 
             while (rs.next()){
                 Long id = rs.getLong("id");
@@ -137,6 +137,7 @@ public class ProdutoDao implements InterProdutoDao{
         } catch (SQLException ex) {
            throw  new RuntimeException(ex);
         }
+
 
         return produtos;
 

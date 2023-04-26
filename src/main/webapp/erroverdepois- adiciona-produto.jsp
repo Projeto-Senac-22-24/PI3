@@ -1,5 +1,4 @@
-<%@ page import ="java.sql.Connection, br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory, br.com.SuplaMentePI.servlet.dao.ProdutoDao, java.util.*, br.com.SuplaMentePI.servlet.modelos.*" %>
-<%@ page pageEncoding ="UTF-8"%> //pra aceita frescuras da lingua portuguesa
+<%@ page pageEncoding ="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -12,21 +11,26 @@
           border-collapse: collapse;
           width: 100%;
        }
+
        td, th {
          border: 1px solid #dddddd;
          text-align: left;
          padding: 8px;
        }
+
         tr:nth-child(even) {
           background-color: #dddddd;
        }
     </style>
-    <h2> Lista de Produtos</h2>
-    <title>Lista dos Produtos</title>
+    <h2>Adiciona Produtos ${param.Nome}</h2>
+    <title>Adiciona Produtos</title>
 </head>
 <body>
+<h2>Adiciona ${param.valor} Produtos</h2>
    <table>
    <tr>
+   ${nome}
+   ${param[Nome]}
    <th>Nome</th>
    <th>Descrição</th>
    <th>Valor</th>
@@ -41,7 +45,6 @@
 
    </tr>
 </c:forEach>
-
    </table>
 
 
