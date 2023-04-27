@@ -43,8 +43,8 @@ public class adicionaProduto extends HttpServlet {
         dao.save(produto);
 
         req.setAttribute("produto", produto);
-        req.getRequestDispatcher("/produto-adicionado.jsp").forward(req,resp);
-
+        //req.getRequestDispatcher("/produto-adicionado.jsp").forward(req,resp);
+        req.getRequestDispatcher("/lista-produto.jsp").forward(req,resp);
 
     }
 

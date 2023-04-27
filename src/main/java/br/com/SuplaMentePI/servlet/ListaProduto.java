@@ -15,12 +15,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/ListaProduto")
+@WebServlet("/lista-de-produto")
 public class ListaProduto  extends HttpServlet {
 
 
     @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Connection connection = null;
         try {
             connection = ConnectionFactory.getConnection();
@@ -28,9 +28,9 @@ public class ListaProduto  extends HttpServlet {
             throw new RuntimeException(e);
         }
         ProdutoDao dao = new ProdutoDao(connection);
-        List<Produto> produtos = dao.findAll();
+        List<Produto> produto = dao.findAll();
 
-        req.setAttribute("produtos", produtos);
+        req.setAttribute("produto", produto);
 
       req.getRequestDispatcher("/lista-produto.jsp").forward(req,resp);
 

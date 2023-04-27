@@ -1,7 +1,6 @@
 <%@ page pageEncoding ="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
 
@@ -36,7 +35,7 @@
    <th>Valor</th>
    <th>Categoria</th>
    </tr>
-<c:forEach var="produto" items="${produto}">
+
 
    <tr>
       <td>${produto.Nome}</td>
@@ -44,7 +43,7 @@
       <td>${param.Nome}</td>
 
    </tr>
-</c:forEach>
+
    </table>
 
 

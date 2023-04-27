@@ -1,5 +1,5 @@
 <%@ page import ="java.sql.Connection, br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory, br.com.SuplaMentePI.servlet.dao.ProdutoDao, java.util.*, br.com.SuplaMentePI.servlet.modelos.*" %>
-<%@ page pageEncoding ="UTF-8"%> //pra aceita frescuras da lingua portuguesa
+<%@ page pageEncoding ="UTF-8"%>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -35,6 +35,7 @@
      Connection connection = ConnectionFactory.getConnection();
      ProdutoDao dao = new ProdutoDao(connection);
      List<Produto> produtos = dao.findAll();
+
      for(Produto produto : produtos){
    %>
    <tr>
@@ -42,6 +43,7 @@
       <td><%= produto.getDescri()%></td>
       <td><%= produto.getValor()%></td>
       <td><%= produto.getCategoria()%></td>
+      <td><a href="/deleta-produto">Remover</a></td>
    </tr>
    <%
    }
@@ -51,3 +53,4 @@
 
 </body>
 </html>
+

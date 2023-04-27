@@ -1,8 +1,8 @@
-<%@ page import ="java.sql.Connection, br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory, br.com.SuplaMentePI.servlet.dao.ProdutoDao, java.util.*, br.com.SuplaMentePI.servlet.modelos.*" %>
-<%@ page pageEncoding ="UTF-8"%> //pra aceita frescuras da lingua portuguesa
+
+<%@ page pageEncoding ="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <head>
     <meta charset="UTF-8">
 
@@ -12,11 +12,13 @@
           border-collapse: collapse;
           width: 100%;
        }
+
        td, th {
          border: 1px solid #dddddd;
          text-align: left;
          padding: 8px;
        }
+
         tr:nth-child(even) {
           background-color: #dddddd;
        }
@@ -25,6 +27,7 @@
     <title>Lista dos Produtos</title>
 </head>
 <body>
+  <div>
    <table>
    <tr>
    <th>Nome</th>
@@ -32,17 +35,17 @@
    <th>Valor</th>
    <th>Categoria</th>
    </tr>
-<c:forEach var="produto" items="${produto}">
-
+   <c:forEach var="produto" items="${produto}">
    <tr>
-      <td>${produto.Nome}</td>
-      <td>${produto.nome}</td>
-      <td>${param.Nome}</td>
-
+      <td> ${produto.Nome}</td>
+      <td> ${produto.Descri}</td>
+      <td> ${produto.Valor}</td>
+      <td> ${produto.Categoria}</td>
+      <td>Remover</td>
    </tr>
-</c:forEach>
-
+   </c:forEach>
    </table>
+   </div>
 
 
 </body>

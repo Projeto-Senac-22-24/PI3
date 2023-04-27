@@ -3,24 +3,40 @@ package br.com.SuplaMentePI.servlet;
 
 
 
+import br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory;
 import br.com.SuplaMentePI.servlet.dao.ProdutoDao;
+import br.com.SuplaMentePI.servlet.modelos.Produto;
 
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 import static br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory.getConnection;
+@WebServlet("/deleta-produto")
+public class DeletaProduto extends HttpServlet {
 
-public class DeletaProduto {
-
-    public static void main(String[] args) {
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String id = req.getParameter("id");
         Connection connection = null;
         try {
-            connection = getConnection();
+            connection = ConnectionFactory.getConnection();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         ProdutoDao dao = new ProdutoDao(connection);
-        dao.deleta(0l);
+
+        dao.deleta(Long.valueOf(id));
+        req.getRequestDispatcher("/lista-de-produto").forward(req,resp);
+
 
     }
+
+
 }

@@ -33,12 +33,13 @@
    <th>Valor</th>
    <th>Categoria</th>
    </tr>
-<c:forEach var="produtos" items="${produtos}">
+<c:forEach var="produto" items="${produto}">
    <tr>
-      <td> ${produtos.Nome}</td>
-      <td> ${produtos.Descri}</td>
-      <td> ${produtos.Valor}</td>
-      <td> ${produtos.Categoria}</td>
+      <td> ${produtos.getNome()}</td>
+      <td> ${produtos.getDescri()}</td>
+      <td> ${produtos.getValor()}</td>
+      <td> ${produtos.getCategoria()}</td>
+      <td><a href="/deleta-produto?id=${produto.id}">Remover</a></td>
    </tr>
 </c:forEach>
    </table>
@@ -46,3 +47,6 @@
 
 </body>
 </html>
+
+
+
