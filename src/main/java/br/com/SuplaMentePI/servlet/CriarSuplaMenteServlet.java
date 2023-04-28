@@ -25,7 +25,7 @@ public class CriarSuplaMenteServlet extends HttpServlet {
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 
-        req.getRequestDispatcher("adiciona-produto.html").forward(req, resp);// mandando a pagina
+        req.getRequestDispatcher("index.html").forward(req, resp);// mandando a pagina
 
 
         try {

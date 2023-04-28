@@ -1,6 +1,4 @@
-
 <%@ page pageEncoding ="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -23,29 +21,30 @@
           background-color: #dddddd;
        }
     </style>
-    <h2> Lista de Produtos</h2>
-    <title>Lista dos Produtos</title>
+    <h2>Adiciona Produtos </h2>
+    <title>Adiciona Produtos</title>
 </head>
 <body>
-  <div>
+
    <table>
    <tr>
+
    <th>Nome</th>
    <th>Descrição</th>
    <th>Valor</th>
    <th>Categoria</th>
    </tr>
-   <c:forEach var="produto" items="${produto}">
+
+
    <tr>
-      <td> ${produto.Nome}</td>
-      <td> ${produto.Descri}</td>
-      <td> ${produto.Valor}</td>
-      <td> ${produto.Categoria}</td>
-      <td>Remover</td>
+      <td>${param.Nome}</td>
+      <td>${param.Descri}</td>
+      <td>${param.Valor}</td>
+      <td>${param.Categoria}</td>
+
    </tr>
-   </c:forEach>
+
    </table>
-   </div>
 
 
 </body>
