@@ -22,7 +22,7 @@ import static br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory.getConnectio
 @WebServlet("/adicionaProduto")
 public class adicionaProduto extends HttpServlet {
 
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String nomeStr = req.getParameter("Nome");
         String descriStr = req.getParameter("Descri");
         String valorStr = req.getParameter("Valor");
