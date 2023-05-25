@@ -1,17 +1,14 @@
-package br.com.SuplaMentePI.servlet.dao;
 
 
 import br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory;
 import br.com.SuplaMentePI.servlet.modelos.Categorias;
 import br.com.SuplaMentePI.servlet.modelos.Produto;
+import br.com.SuplaMentePI.servlet.Config.PoolConfig;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
-
-import static br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory.*;
 
 public class ProdutoDao implements InterProdutoDao{
      private final Connection connection;
@@ -20,6 +17,14 @@ public class ProdutoDao implements InterProdutoDao{
         this.connection = connection;
     }
 
+
+//    create table Produto(
+//            id bigserial primary key,
+//            nome varchar(150),
+//    descri varchar(500),
+//    valor decimal(10, 2),
+//    categoria varchar(100)
+//);
     @Override
     public Produto save(Produto produto) {
 
@@ -27,8 +32,9 @@ public class ProdutoDao implements InterProdutoDao{
 
             String sql= "INSERT INTO Produto (Nome, Descri, Valor, Categoria) VALUES (?, ?, ?, ?)";
 
-            PreparedStatement preparedStatement = this.connection.prepareStatement(sql, 1);
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
+            Connection connection = PoolConfig.getConnection();
             preparedStatement.setString( 1, produto.getNome());
 
             preparedStatement.setString( 2, produto.getDescri());
@@ -44,12 +50,10 @@ public class ProdutoDao implements InterProdutoDao{
             produto.setId(generatedKeys.getLong("id"));
 
 
-            preparedStatement.close(); // pra fechar depois
+           preparedStatement.close(); // pra fechar depois
+            generatedKeys.close();
 
         } catch (SQLException e) {
-
-            System.out.println("nao conectado");
-
             throw new RuntimeException(e);
         } ;
         return produto;
@@ -57,11 +61,12 @@ public class ProdutoDao implements InterProdutoDao{
 
     @Override
     public Produto update(Produto produto) {
-        try(Connection connection = getConnection()) {
+        try {
 
             String sql= "UPDATE Produto SET nome = ?, descri = ?, valor = ?, categoria = ? WHERE id = ?;";
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            Connection connection = PoolConfig.getConnection();
           // to respeitando a ordem viu
             preparedStatement.setString( 1, produto.getNome());
 
@@ -75,11 +80,9 @@ public class ProdutoDao implements InterProdutoDao{
 
             preparedStatement.executeUpdate();
 
-
+            preparedStatement.close();
 
         } catch (SQLException e) {
-
-            System.out.println("nao conectado");
 
             throw new RuntimeException(e);
         } ;
@@ -88,11 +91,12 @@ public class ProdutoDao implements InterProdutoDao{
 
 
     @Override
-    public void deleta(long id) {
+    public void deleta(Long id) {
 
-        try(Connection connection = getConnection()) {
+        try {
 
             String sql= "DELETE FROM Produto WHERE id = ?";
+            Connection connection = PoolConfig.getConnection();
 
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
 
@@ -100,11 +104,9 @@ public class ProdutoDao implements InterProdutoDao{
 
             preparedStatement.executeUpdate();
 
-
+            preparedStatement.close();
 
         } catch (SQLException e) {
-
-            System.out.println("nao conectado");
 
             throw new RuntimeException(e);
         } ;
@@ -118,8 +120,9 @@ public class ProdutoDao implements InterProdutoDao{
 
         List<Produto> produtos = new ArrayList<>();
 
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            Connection connection = PoolConfig.getConnection();
 
             ResultSet rs = preparedStatement.executeQuery();
 
@@ -133,24 +136,24 @@ public class ProdutoDao implements InterProdutoDao{
                 Produto produto = new Produto(id, nome, descri, valor, categoria);
                 produtos.add(produto);
             }
-
+             preparedStatement.close();
+            rs.close();
         } catch (SQLException ex) {
            throw  new RuntimeException(ex);
         }
 
-
         return produtos;
-
     }
 
     @Override
-    public Optional<Produto> findById(long id) { // ira buscar um produto unico pelo id
+    public Optional<Produto> findById(Long id) { // ira buscar um produto unico pelo id
         String sql = "SELECT id, nome, descri, valor, categoria FROM Produto WHERE id = ?";
 
         Produto produto = null;
 
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            Connection connection = PoolConfig.getConnection();
             preparedStatement.setLong(1,id);
 
             ResultSet rs = preparedStatement.executeQuery();// permite fazer uma busca
@@ -165,6 +168,8 @@ public class ProdutoDao implements InterProdutoDao{
                 produto = new Produto(primeKey, nome, descri, valor, categoria);
 
             }
+            preparedStatement.close();
+            rs.close();
 
         } catch (SQLException ex) {
             throw  new RuntimeException(ex);
@@ -173,14 +178,15 @@ public class ProdutoDao implements InterProdutoDao{
     }
 
     @Override
-    public List<Produto> findByString(String nome) { // ira buscar um produtos unico pelo nome
+    public List<Produto> findByNome(String nome) { // ira buscar um produtos unico pelo nome
         String sql = "SELECT id, nome, descri, valor, categoria FROM Produto WHERE nome = ?";
 
         List<Produto> produtos = new ArrayList<>();
 
-        try(Connection connection = ConnectionFactory.getConnection()){
+        try{
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1,nome);
+            Connection connection = PoolConfig.getConnection();
+            preparedStatement.setString(1,nome.toString());
 
             ResultSet rs = preparedStatement.executeQuery();// permite fazer uma busca
 
@@ -194,7 +200,8 @@ public class ProdutoDao implements InterProdutoDao{
                 Produto produto = new Produto(id, nm, descri, valor, categoria);
                 produtos.add(produto);
             }
-
+            preparedStatement.close();
+            rs.close();
         } catch (SQLException ex) {
             throw  new RuntimeException(ex);
         }
@@ -208,8 +215,9 @@ public class ProdutoDao implements InterProdutoDao{
 
         List<Produto> produtos = new ArrayList<>();
 
-        try(Connection connection = ConnectionFactory.getConnection()){
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+        try{
+            PreparedStatement preparedStatement = this.connection.prepareStatement(sql);
+            Connection connection = PoolConfig.getConnection();
             preparedStatement.setString(1,categoria.toString());
 
             ResultSet rs = preparedStatement.executeQuery();// permite fazer uma busca
@@ -224,6 +232,8 @@ public class ProdutoDao implements InterProdutoDao{
                 Produto produto = new Produto(id, nome, descri, valor, ctg);
                 produtos.add(produto);
             }
+            preparedStatement.close();
+            rs.close();
 
         } catch (SQLException ex) {
             throw  new RuntimeException(ex);
