@@ -1,8 +1,7 @@
-<%@ page pageEncoding ="UTF-8"%>
-
 <!DOCTYPE html>
+<html>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<html lang="pt">
+<%@ page pageEncoding ="UTF-8"%>
 <head>
     <meta charset="UTF-8">
 
@@ -32,18 +31,18 @@
    <th>Nome</th>
    <th>Descrição</th>
    <th>Valor</th>
-
+   <th>Categoria</th>
    </tr>
-
+<c:forEach var="produto" items="${produto}">
    <tr>
-       <td>${param.Nome}</td>
-       <td>${param.Descri}</td>
-       <td>${param.Valor}</td>
 
-
-      <td><a href="/deleta-produto?id=${produto.id}">Remover</a></td>
+      <td> ${produto.getNome()}</td>
+      <td> ${produto.getDescri()}</td>
+      <td> ${produto.getValor()}</td>
+      <td> ${produto.getCategoria()}</td>
+       <td><a href="/deletaproduto?id=${produto.id}">Remover</a></td>
    </tr>
-
+</c:forEach>
    </table>
 
 
