@@ -2,10 +2,10 @@ package br.com.SuplaMentePI.servlet.modelos;
 
 public enum Categorias {
 
-    Proteínas,
-    Termogênicos,
+    Proteinas,
+    Termogenicos,
     Vitaminas,
-    Carboidratos,
-    test
+    Carboidratos
 
 }
+
