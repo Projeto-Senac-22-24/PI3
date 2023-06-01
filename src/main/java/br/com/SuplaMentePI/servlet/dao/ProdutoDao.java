@@ -1,6 +1,7 @@
 
 
-import br.com.SuplaMentePI.servlet.Conexao.ConnectionFactory;
+package br.com.SuplaMentePI.servlet.dao;
+
 import br.com.SuplaMentePI.servlet.modelos.Categorias;
 import br.com.SuplaMentePI.servlet.modelos.Produto;
 import br.com.SuplaMentePI.servlet.Config.PoolConfig;
@@ -89,6 +90,11 @@ public class ProdutoDao implements InterProdutoDao{
         return produto;
     }
 
+    @Override
+    public void deleta(long id) {
+
+    }
+
 
     @Override
     public void deleta(Long id) {
@@ -143,6 +149,16 @@ public class ProdutoDao implements InterProdutoDao{
         }
 
         return produtos;
+    }
+
+    @Override
+    public Optional<Produto> findById(long id) {
+        return Optional.empty();
+    }
+
+    @Override
+    public List<Produto> findByString(String Nome) {
+        return null;
     }
 
     @Override
