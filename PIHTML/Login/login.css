@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: #DADADA;
+}
+header{
+    background-color: #3E3E3E;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+header h1{
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+main{
+    background-color: #DADADA;
+}
+
+img{
+    width: 100px;
+    margin: 50px 0 0 100px;
+}
+
+.principal{
+   font-size: 24px;
+   font-weight: bold;
+   font-family: 'Lato', sans-serif;
+   display: flexbox;
+   width: 100px;
+   margin-left: auto;
+   margin-right: auto; 
+   text-align: center;
+}
+
+.principal input{
+    border: none;
+    padding: 20px;
+    padding-inline: 300px;
+    border-radius: 35px;
+    margin-left: -330px;
+    margin-top: 30px;
+}
+
+.senha{
+    margin-top: 120px;
+    font-size: 24px;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    display: flexbox;
+    width: 100px;
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+ }
+ 
+ .senha input{
+     border: none;
+     padding: 20px;
+     padding-inline: 300px;
+     border-radius: 35px;
+     margin-left: -330px;
+     margin-top: 30px;
+ }
+
+ .botao{
+    text-align: center;
+    margin-top: 100px;
+ }
+
+ button{
+    font-weight: 900;
+    font-size: 24px;
+    border: none;
+    color: #FFFFFF;
+    background: #191B19;
+    font-family: 'Lato', sans-serif;
+    padding: 15px;
+    border-radius: 15px;
+    letter-spacing: .2rem;
+ }
+
+ .botao :hover{
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0.40, 0.40);
+ }
+
+ .voltar{
+    color: #FFFFFF;
+    font-family: 'Lato', sans-serif;
+    margin: -13px 0 0 10px;
+    position: absolute;
+    font-size: 50px;
+    text-decoration: none;
+}
+
+.voltar:hover{
+    font-size: 60px;
+    margin-top: -17px;
+}

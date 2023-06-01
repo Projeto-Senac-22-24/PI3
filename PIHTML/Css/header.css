@@ -1,0 +1,102 @@
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: #B40A0A;
+    display: flex;
+}
+.cabecalho{
+    position: relative;
+    display: flex;
+    margin: 20px 0 0 290px;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+    margin: 5px 0 5px 105px
+}
+
+.login{
+    background: #E3E3E3;
+    border-radius: 4px;
+    border: none;
+    padding: 2px;
+    padding-inline: 25px;
+    margin: 0 0 0 50px;
+    
+}
+
+.login:hover{
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0.40, 0.40);
+}
+
+.lupa{
+    width: 20px;
+    height: 20px;
+    margin-left: 60px;
+}
+input{
+    background: #E3E3E3;
+    border: none;
+    border-radius: 30px;
+    width: 270px;
+    height: 17px;
+    margin-left: 15px;
+}
+
+.local{
+    margin-left: 50px;
+}
+
+p{
+    margin-left: 20px;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+}
+
+.menu{
+    margin-left: 70px;
+    width: 23px;
+}
+
+.menu:hover{
+    cursor: pointer;
+    width: 30px;
+}
+
+.mainmenubtn {
+    margin-top:10px;
+    width: 30px;
+   
+}
+.mainmenubtn:hover {
+    background-color: #000000;
+}
+
+.dropdown {
+    position: absolute;
+    display: inline-block;
+}
+.dropdown-child {
+    display: none;
+    background-color: #B40A0A;
+    min-width: 200px;
+    margin-top: 320px;
+    
+}
+.dropdown-child a {
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    display: block;
+}
+.dropdown:hover .dropdown-child {
+    display: block;
+}

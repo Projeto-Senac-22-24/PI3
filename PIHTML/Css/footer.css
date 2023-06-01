@@ -1,0 +1,35 @@
+
+footer{
+    background-color: #3E3E3E;
+    margin: 0;
+    padding: 0;
+}
+
+section{
+    display: flex;
+}
+
+ul{
+    color: aliceblue;
+    font-family: 'Lato', sans-serif;
+    margin-left:190px;
+    margin-top: 30px;
+}
+
+li:hover{
+    cursor: pointer;
+}
+
+li{
+    margin-top: 10px;
+}
+
+.institu{
+    margin-left: 250px;
+}
+
+.logo2 img{
+    width: 220px;
+    margin-left: 350px;
+    margin-top: 30px;
+}
