@@ -1,0 +1,64 @@
+
+main{
+    background-color: #DADADA;
+}
+.legenda{
+    width: 550px;
+    font-family: 'Lato', sans-serif;
+    margin-left: 300px;
+    margin-top: 150px;
+}
+
+.legenda p {
+    margin-top: 30px;
+    font-size: 22px;
+}
+
+.legenda h2{
+    font-size: 35px;
+    margin-left: 20px;
+}
+
+.legenda button{
+    margin-top: 50px;
+    padding: 13px;
+    width: 320px;
+    background-color: #226E0F;
+    border-radius: 30px;
+    border: none;
+    color: #FFFFFF;
+    font-size: 30px;
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    padding-inline: 20px;
+}
+
+.legenda button:hover{
+    cursor: pointer;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0.40, 0.40);
+}
+
+.modelo img{
+    width: 670px;
+    height: 706px;
+    margin-left: 300px;
+    margin-top: 50px;
+}
+
+.produtos h1{
+    font-size: 40px;
+    font-family: 'Lato', sans-serif;
+    margin-left: 133px;
+}
+
+.container{
+    width: 1300px;
+    margin-top: 150px;
+    font-family: 'Lato', sans-serif;
+}
+
+.produtos2{
+   margin-left: 300px;
+}
+
+
